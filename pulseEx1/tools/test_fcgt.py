@@ -20,7 +20,7 @@ def test_fcgt(net, data):
     result = []
     accuracy = 0
     for i in xrange(signalsum):
-    	sig = np.zeros((1,1,1,512), dtype = np.float32)
+    	sig = np.zeros((1,1,1,1024), dtype = np.float32)
     	sig[0,0,0,:] = data['data'][i,0,0,:]
     	# label = data['label'][i]
         label = np.zeros((1,1,1,1), dtype = np.float32)
@@ -38,14 +38,14 @@ def test_fcgt(net, data):
 
 
 if __name__ == '__main__':
-    signalfile = '/net/liuwenran/datasets/DEAP/experiment/signal512/finalExData_shuffled/signal_train.mat'
-    hrfile = '/net/liuwenran/datasets/DEAP/experiment/signal512/finalExData_shuffled/HeartRate_train.mat'
+    signalfile = '/net/liuwenran/datasets/DEAP/experiment/signalTrue1024/finalExData_shuffled/signal_test.mat'
+    hrfile = '/net/liuwenran/datasets/DEAP/experiment/signalTrue1024/finalExData_shuffled/HeartRate_test.mat'
  #   signalfile = '/net/liuwenran/datasets/DEAP/experiment/ex1_fc_gt/finalExData_shuffled/signal_test.mat'
  #   hrfile = '/net/liuwenran/datasets/DEAP/experiment/ex1_fc_gt/finalExData_shuffled/HeartRate_test.mat'
  #   testfile = '/net/liuwenran/caffe_learn/data/lwr_test_img_mat.mat'
     test_prototxt = '/net/liuwenran/heartRate/pulseEx1/proto/lwr_ex1_test.prototxt'
     output_dir = '/net/liuwenran/heartRate/pulseEx1/data/output_tfc_512/'
-    pretrained_model = '/net/liuwenran/heartRate/pulseEx1/data/output_tfc_512/fcgt_iter_10000.caffemodel'
+    pretrained_model = '/net/liuwenran/heartRate/pulseEx1/data/output_compare/fcgt_iter_100000.caffemodel'
     gpu_id = 3
 
     test_data = get_from_mat(signalfile, hrfile)
@@ -65,6 +65,7 @@ if __name__ == '__main__':
     sumnum = test_data['data'].shape[0]
     goodrate = float(accuracy) / sumnum
     print 'accuracy is ' + str(accuracy)
+    print 'sumnum is ' + str(sumnum)
     print 'goodrate is ' + str(goodrate)
  #   final_score = sum(accuracy) / mnist_test_data['data'].shape[0]
  #   print 'final_score is ' + str(final_score)

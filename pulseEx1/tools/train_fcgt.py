@@ -76,11 +76,11 @@ class SolverWrapper(object):
 
 
 if __name__ == '__main__':
-    signalfile = '/net/liuwenran/datasets/DEAP/experiment/signalFive1024/finalExData_shuffled/signal_train.mat'
-    hrfile = '/net/liuwenran/datasets/DEAP/experiment/signalFive1024/finalExData_shuffled/HeartRate_train.mat'
-    solver_prototxt = '/net/liuwenran/heartRate/pulseEx1/proto/lwr_ex2_solver.prototxt'
-    output_dir = '/net/liuwenran/heartRate/pulseEx1/data/output_tfc_512/'
-    max_iters = 10000
+    signalfile = '/net/liuwenran/datasets/DEAP/experiment/signalTrue1024/finalExData_shuffled/signal_train.mat'
+    hrfile = '/net/liuwenran/datasets/DEAP/experiment/signalTrue1024/finalExData_shuffled/HeartRate_train.mat'
+    solver_prototxt = '../proto/lwr_ex1_solver.prototxt'
+    output_dir = '../data/output_compare/'
+    max_iters = 100000
     pretrained_model = None
 
     fcgt_data = get_from_mat(signalfile,hrfile)

@@ -15,7 +15,7 @@ __C.TRAIN = edict()
 __C.TRAIN.IMS_PER_BATCH = 100
 
 # Iterations between snapshots
-__C.TRAIN.SNAPSHOT_ITERS = 1000
+__C.TRAIN.SNAPSHOT_ITERS = 100000
 
 # solver.prototxt specifies the snapshot path prefix, this adds an optional
 # infix to yield the path: <prefix>[_<infix>]_iters_XYZ.caffemodel
